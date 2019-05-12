@@ -1,6 +1,4 @@
 #!/bin/bash
-echo ${TBS}
-
 TMP_HOSTNAME=${HOSTNAME%%.*}
 if [ -x "${TBS}/hosts/${TMP_HOSTNAME}.ascii" ]
 then
