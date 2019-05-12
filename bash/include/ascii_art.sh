@@ -1,16 +1,17 @@
 #!/bin/bash
+echo ${TBS}
 
 TMP_HOSTNAME=${HOSTNAME%%.*}
-if [ -x "${TBS}/../hosts/${TMP_HOSTNAME}.ascii" ]
+if [ -x "${TBS}/hosts/${TMP_HOSTNAME}.ascii" ]
 then
-    source "${TBS}/../hosts/${TMP_HOSTNAME}.ascii"
+    source "${TBS}/hosts/${TMP_HOSTNAME}.ascii"
 else
     echo -e "${LIGHT_BLACK}
-            _______
-            \   _  \
-    ______  /  /_\  \    ______
-   /_____/  \  \_/   \  /_____/
-             \_____  /
-                   \/
+          _______             
+          \   _  \            
+  ______  /  /_\  \    ______ 
+ /_____/  \  \_/   \  /_____/ 
+           \_____  /          
+                 \/           
     ${RESET}"
 fi

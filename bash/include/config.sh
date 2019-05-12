@@ -26,7 +26,7 @@ umask 077
 shopt -s checkwinsize
 
 TMP_HOSTNAME=${HOSTNAME%%.*}
-if [ -x "${TBS}/../hosts/${TMP_HOSTNAME}.config" ]
+if [ -x "${TBS}/hosts/${TMP_HOSTNAME}.config" ]
 then
-    source "${TBS}/../hosts/${TMP_HOSTNAME}.config"
+    source "${TBS}/hosts/${TMP_HOSTNAME}.config"
 fi

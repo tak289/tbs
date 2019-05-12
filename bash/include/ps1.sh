@@ -12,9 +12,9 @@ else
 fi
 
 TMP_HOSTNAME=${HOSTNAME%%.*}
-if [ -x "${TBS}/../hosts/${TMP_HOSTNAME}.ps1" ]
+if [ -x "${TBS}/hosts/${TMP_HOSTNAME}.ps1" ]
 then
-    source "${TBS}/../hosts/${TMP_HOSTNAME}.ps1"
+    source "${TBS}/hosts/${TMP_HOSTNAME}.ps1"
 else
     if [ ${TBS_USE_COLOR} ]
     then

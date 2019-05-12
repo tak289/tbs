@@ -1,8 +1,8 @@
 #!/bin/bash
 TMP_HOSTNAME=${HOSTNAME%%.*}
-if [ -x "${TBS}/../hosts/${TMP_HOSTNAME}.motd" ]
+if [ -x "${TBS}/hosts/${TMP_HOSTNAME}.motd" ]
 then
-    source "${TBS}/../hosts/${TMP_HOSTNAME}.motd"
+    source "${TBS}/hosts/${TMP_HOSTNAME}.motd"
 else
     KERNEL=`uname -r`
     SYSTEM=`uname -s`

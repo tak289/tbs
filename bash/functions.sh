@@ -25,33 +25,24 @@ LIGHT_YELLOW='\033[1;33m'
 RESET='\e[0m'
 NO_COLOR='\033[0m'
 
-
-# This test if system is a gentoo system providing these functions already.
-# If not, define some functions inspired by gentoo.
-
-if [ -r /sbin/functions.sh ]
-then
-    source /sbin/functions.sh
-else
-    einfo()
-    {
-        echo -e "${LIGHT_GREEN} * ${RESET}$*"
-    }
-    eerror()
-    {
-        echo -e "${LIGHT_RED} * ${RESET}$*"
-    }
-    ewarn()
-    {
-        echo -e "${LIGHT_YELLOW} * ${RESET}$*"
-    }
-    ebegin()
-    {
-        echo -e "${LIGHT_GREEN} * ${RESET}$*"
-    }
-    eend()
-    {
-        # Do Nothing
-        NOTHING=0
-    }
-fi
+einfo()
+{
+    echo -e "${LIGHT_GREEN} * ${RESET}$*"
+}
+eerror()
+{
+    echo -e "${LIGHT_RED} * ${RESET}$*"
+}
+ewarn()
+{
+    echo -e "${LIGHT_YELLOW} * ${RESET}$*"
+}
+ebegin()
+{
+    echo -e "${LIGHT_GREEN} * ${RESET}$*"
+}
+eend()
+{
+    # Do Nothing
+    NOTHING=0
+}
