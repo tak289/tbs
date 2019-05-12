@@ -1,0 +1,12 @@
+#!/bin/bash
+echo -e "${LIGHT_CYAN}
+
+     ${LIGHT_RED}Welcome          ${LIGHT_CYAN}__  ${LIGHT_RED} $USER to ${LIGHT_CYAN}
+_____     ___________|__| ____  
+\\__  \\  _/ __ \\_  __ \\  |/    \\ 
+ / __ \\ \\  ___/|  | \\/  |   |  \\
+(____  / \\___  >__|  |__|___|  /
+     \\/     \\/              \\/
+${RESET}
+
+"

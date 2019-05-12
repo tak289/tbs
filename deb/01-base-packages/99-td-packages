@@ -1,0 +1,3 @@
+sudo
+mosquitto-clients
+python3-pip
