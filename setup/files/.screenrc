@@ -1,2 +1,25 @@
+##
+## Screen config file
+##
+
+startup_message off
 defscrollback 300000
 vbell off
+
+autodetach on
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{wk}[%H][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %Y-%m-%d %c ]%{W}'
+
+msgwait 1
+
+shell -$SHELL
+
+screen -t Shell   1 bash
+screen -t Shell   2 bash
+screen -t htop    3 htop -d 100
+select 1
+
+# disable C-a s, which freezes the screen
+bind s

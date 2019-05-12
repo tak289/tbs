@@ -34,6 +34,7 @@ $INSTALL_FOLDER/setup/installpackages.sh 01-basic-packages 15-docker-req-package
 - Local configuration files. You can override the global settings for specific users, e.g.:
 ```
 cp $INSTALL_FOLDER/setup/files/.vimrc $HOME/
+cp -r $INSTALL_FOLDER/setup/files/.vim $HOME/
 cp $INSTALL_FOLDER/setup/files/.screenrc $HOME/
 ```
 
