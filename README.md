@@ -16,8 +16,8 @@ git clone https://github.com/tak289/tbs.git "$INSTALL_FOLDER"
 ```
 echo "source \"$INSTALL_FOLDER/bash/bash_login.sh\"" >> /root/.bashrc
 echo "source \"$INSTALL_FOLDER/bash/bash_login.sh\"" >> /etc/skel/.bashrc
-# Additional users
-echo "source \"$INSTALL_FOLDER/bash/bash_login.sh\"" >> $HOME/.bashrc
+# Additional users - assuming /opt/tbs here
+echo "source \"/opt/tbs/bash/bash_login.sh\"" >> $HOME/.bashrc
 ```
 
 ## From-scratch post-installation scripts
@@ -33,9 +33,9 @@ $INSTALL_FOLDER/setup/installpackages.sh 01-basic-packages 15-docker-req-package
 
 - Local configuration files. You can override the global settings for specific users, e.g.:
 ```
-cp $INSTALL_FOLDER/setup/files/.vimrc $HOME/
-cp -r $INSTALL_FOLDER/setup/files/.vim $HOME/
-cp $INSTALL_FOLDER/setup/files/.screenrc $HOME/
+cp /opt/tbs/setup/files/.vimrc $HOME/
+cp -r /opt/tbs/setup/files/.vim $HOME/
+cp /opt/tbs/setup/files/.screenrc $HOME/
 ```
 
 
