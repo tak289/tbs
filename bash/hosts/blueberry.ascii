@@ -1,0 +1,14 @@
+#!/bin/bash
+echo -e "
+${DARK_GREEN}
+       .~~.   .~~.
+      '. \ ' ' / .'   
+${DARK_BLUE}       .~ .~~~..~.     ${LIGHT_BLUE} _     _            _                          
+${DARK_BLUE}      : .~.'~'.~. :    ${LIGHT_BLUE}| |   | |          | |                         
+${DARK_BLUE}     ~ (   ) (   ) ~   ${LIGHT_BLUE}| |__ | |_   _  ___| |__   ___ _ __ _ __ _   _ 
+${DARK_BLUE}    ( : '~'.~.'~' : )  ${LIGHT_BLUE}| '_ \| | | | |/ _ \ '_ \ / _ \ '__| '__| | | |
+${DARK_BLUE}     ~ .~ (   ) ~. ~   ${LIGHT_BLUE}| |_) | | |_| |  __/ |_) |  __/ |  | |  | |_| |
+${DARK_BLUE}      (  : '~' :  )    ${LIGHT_BLUE}|_.__/|_|\__,_|\___|_.__/ \___|_|  |_|   \__, |
+${DARK_BLUE}       '~ .~~~. ~'     ${LIGHT_BLUE}                                          __/ |
+${DARK_BLUE}           '~'         ${LIGHT_BLUE}                                         |___/ 
+${RESET}"
