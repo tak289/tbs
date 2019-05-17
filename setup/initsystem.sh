@@ -35,5 +35,8 @@ fi
 ##
 ## Clean motd
 ##
-cp /etc/motd /etc/motd.save
-echo "" > /etc/motd
+if [ -f /etc/motd ]
+then
+	cp /etc/motd /etc/motd.save
+	echo "" > /etc/motd
+fi
