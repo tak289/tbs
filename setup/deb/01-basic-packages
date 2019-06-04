@@ -25,7 +25,6 @@ python3-pip
 jq
 knockd
 pdfgrep
-pdftk
 nsca-client
 links
 lynx
