@@ -1,5 +1,6 @@
 amarok
-chromium-browser
+#chromium-browser
+#chromium
 
 wireshark-gtk
 wipe
@@ -9,6 +10,6 @@ darktable
 gmtkbabel
 gpxviewer
 
-memtest86+
+#memtest86+
 
 ttf-mscorefonts-installer

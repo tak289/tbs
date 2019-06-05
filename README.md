@@ -28,7 +28,7 @@ echo "source \"/opt/tbs/bash/bash_login.sh\"" >> $HOME/.bashrc
   - Install many base packages you have to install manually otherwise. Arguments indicate in which subfolders the script should look into (e.g. if non-gui system, remove that argument)
 ```
 $INSTALL_FOLDER/setup/initsystem.sh
-$INSTALL_FOLDER/setup/installpackages.sh 01-basic-packages 15-docker-req-packages 50-gui-packages 90-td-basic-packages 95-td-desktop-packages
+$INSTALL_FOLDER/setup/installpackages.sh 01-basic-packages 15-docker-req-packages 50-gui-packages 90-td-basic-packages 95-td-desktop-packages 96-td-recovery-packages 98-build-packages
 ```
 
 - Local configuration files. You can override the global settings for specific users, e.g.:
