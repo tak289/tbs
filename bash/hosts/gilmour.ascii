@@ -2,7 +2,7 @@
 echo -e ""
 echo -ne "${LIGHT_YELLOW}"
 echo '                                        ,-.        _.---._'
-echo -e " ${LIGHT_BLUE}Welcome $USER to ${LIGHT_CYAN}Gilmour${LIGHT_YELLOW}             |  \`\.__.-''       \`."
+echo -e " ${LIGHT_BLUE}Welcome $USER to ${LIGHT_CYAN}Gilmour${LIGHT_YELLOW}\t       |  \`\.__.-''       \`."
 echo '                                        \  _        _  ,.   \'
 echo '                  ,+++=._________________)_||______|_|_||    |'
 echo '                 (_.ooo.===================||======|=|=||    |'
