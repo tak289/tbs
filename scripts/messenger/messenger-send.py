@@ -15,7 +15,7 @@ import argparse
 ## Logging
 ##
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.WARNING)
 
 def setup_logger():
 	global logger
@@ -29,7 +29,7 @@ def setup_logger():
 	formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 	ch = logging.StreamHandler()
 	ch.setFormatter(formatter)
-	ch.setLevel(logging.DEBUG)
+	ch.setLevel(logging.WARNING)
 	logger.addHandler(ch)
 setup_logger()
 
