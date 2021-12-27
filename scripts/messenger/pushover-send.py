@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 ##
-## Messenger app using pushover
-## TD 12/2020
-##
-## Requires module pyTelegramBotAPI
+## Messenger app using pushover - https://pushover.net/api
+## TD 12/2021
 ##
 
 import logging
@@ -78,7 +76,6 @@ if parse_mode == "HTML":
 	html = "1"
 else:
 	html = "0"
-
 
 logger.debug(f"Sending message to {receipient}: {message}")
 
