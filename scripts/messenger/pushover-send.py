@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 ##
-## Messenger app - sends some notification to mobile phone
-## Uses Telegram. TD 06/2020
+## Messenger app using pushover
+## TD 12/2020
 ##
 ## Requires module pyTelegramBotAPI
 ##
@@ -38,14 +38,17 @@ setup_logger()
 ##
 default_configfile = '/etc/tbs/tbs.conf'
 default_parse_mode = "HTML"
+default_priority = "0"
 
 ## Argument parsing
 
 parser = argparse.ArgumentParser(prog='messenger-send', usage='%(prog)s [options]', description='Sending messages with Telegram.')
 parser.add_argument('-c', '--configfile', dest='configfile', default=default_configfile, metavar='FILE', type=str, help='Path to configfile')
-parser.add_argument('-r', '--receipient', dest='receipient', required=True, metavar='MESSENGER_ID', type=str, help='Receipient number')
+parser.add_argument('-r', '--receipient', dest='receipient', required=True, metavar='MESSENGER_ID', type=str, help='Receipient device')
 parser.add_argument('-m', '--message', dest='message', required=True, metavar='MESSAGE', type=str, help='The message to be sent')
-parser.add_argument('-p', '--parse_mode', dest='parse_mode', metavar='MODE', default=default_parse_mode, choices=['HTML', 'MARKDOWN'], help='Choose a special parse mode for the message')
+parser.add_argument('-t', '--title', dest='title', metavar='TITLE', type=str, help='Optional title')
+parser.add_argument('-p', '--parse_mode', dest='parse_mode', metavar='MODE', default=default_parse_mode, choices=['HTML'], help='Choose a special parse mode for the message')
+parser.add_argument('-n', '--priority', dest='priority', metavar='PRIORITY', default=default_priority, choices=['-2','-1','0','1','2'], help='Prio - send as -2 to generate no notification/alert, -1 to always send as a quiet notification, 1 to display as high-priority and bypass the users quiet hours, or 2 to also require confirmation from the user')
 args = parser.parse_args()
 
 ###############
@@ -64,22 +67,31 @@ messenger = config['messenger']
 
 ###############
 # Send messages
-# https://github.com/eternnoir/pyTelegramBotAPI/blob/master/telebot/apihelper.py
-
-import telebot
-
-token = messenger["telegram_bot_id"] + ":" + messenger["telegram_api_key"]
-logger.debug(f"Creating bot instance with token: {token}")
-bot = telebot.TeleBot(token)
 
 receipient = args.receipient
 message = args.message
 parse_mode = args.parse_mode
+title = args.title
+priority = args.priority
 
-# Lookup for known numbers in config file
-if receipient in messenger["telegram_receipients"]:
-	logger.debug(f"Replacing {receipient} with {messenger['telegram_receipients'][receipient]}")
-	receipient = messenger["telegram_receipients"][receipient]
+if parse_mode == "HTML":
+	html = "1"
+else:
+	html = "0"
+
 
 logger.debug(f"Sending message to {receipient}: {message}")
-bot.send_message(receipient, message, parse_mode=parse_mode)
+
+import http.client, urllib
+conn = http.client.HTTPSConnection("api.pushover.net:443")
+conn.request("POST", "/1/messages.json",
+  urllib.parse.urlencode({
+    "token": messenger["pushover_token"],
+    "user": messenger["pushover_user"],
+    "message": message,
+    "device": receipient,
+    "title": title,
+    "priority": priority,
+    "html": html
+  }), { "Content-type": "application/x-www-form-urlencoded" })
+conn.getresponse()
