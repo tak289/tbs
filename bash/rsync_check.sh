@@ -5,9 +5,9 @@
 ##
 if [ -n "$SSH_ORIGINAL_COMMAND" ]; then
     if [[ "$SSH_ORIGINAL_COMMAND" =~ ^rsync\  ]]; then
-        echo "`/bin/date`: $SSH_ORIGINAL_COMMAND" >> /tmp/ssh-command-log
+        echo "Executing rsync-based command with ssh." | systemd-cat -t ssh-rsync-check
         exec $SSH_ORIGINAL_COMMAND
     else
-        echo "`/bin/date`: DENIED $SSH_ORIGINAL_COMMAND" >> /tmp/ssh-command-log
+        echo "DENIED $SSH_ORIGINAL_COMMAND" | systemd-cat -t ssh-rsync-check -p emerg
     fi
 fi
